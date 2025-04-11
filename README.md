@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# Patient Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application for managing patient records using Google Sheets as a database.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Google Drive Integration**: Select Google Sheets directly from your Google Drive
+- **Patient Management**: Add, edit, search, and delete patient records
+- **Responsive Design**: Works on desktop and mobile devices
+- **Material UI**: Modern user interface built with Material UI components
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- Material UI
+- Google Drive API
+- Google Sheets API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm installed
+- Google API credentials (see Configuration section)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository
+```bash
+git clone https://github.com/your-username/patient-management-app.git
+cd patient-management-app
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Configure Google API credentials (see Configuration section)
 
-### `npm run eject`
+4. Start the development server
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Configuration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before running the application, you need to set up Google API credentials:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project
+3. Enable the Google Drive API and Google Sheets API
+4. Create OAuth 2.0 credentials
+5. Add the following scopes:
+   - https://www.googleapis.com/auth/drive.file
+   - https://www.googleapis.com/auth/spreadsheets
+6. Update the `src/services/GoogleDriveService.js` file with your API key and Client ID
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+const API_KEY = 'YOUR_API_KEY';
+const CLIENT_ID = 'YOUR_CLIENT_ID';
+```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Select Google Sheet**: Use the "Select File" tab to authenticate with Google and select a Google Sheet
+2. **Add Patient**: Add new patient records through the "Add Patient" tab
+3. **Edit Patient**: Edit existing patient records through the "Edit Patient" tab
+4. **Search**: Search for patients by name, ID, phone, location, or address
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+### Netlify Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To deploy to Netlify:
 
-### Analyzing the Bundle Size
+```bash
+npm run build
+npm run deploy:netlify
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing
 
-### Making a Progressive Web App
+Run tests with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm test
+```
 
-### Advanced Configuration
+For test coverage:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run test:coverage
+```
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE file for details.
